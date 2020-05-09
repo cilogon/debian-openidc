@@ -22,3 +22,13 @@ SCOPE=openid email profile org.cilogon.userinfo
 CRYPTOPASS=changeme
 SERVERNAME=localhost.localdomain
 ```
+
+## push to Docker Hub
+```
+git status # verify that my working tree is clean
+git tag v0.1 # tag the new version
+git push --tags # push the new tag to GitHub
+docker build -t debian-openidc . # build the image
+docker images # find the IMAGE ID
+docker tag 5b06d34ca7b1 cilogon/debian-openidc:v0.1 # tag it
+docker push cilogon/debian-openidc:v0.1 # push
