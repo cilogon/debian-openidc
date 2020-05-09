@@ -1,17 +1,17 @@
 # debian-openidc
 a Debian Docker container using mod_auth_openidc according to https://www.cilogon.org/oidc
 
-# build the container
+## build the container
 ```
 docker build -t debian-openidc .
 ```
 
-# run the container
+## run the container
 ```
 docker run --env-file ./debian-openidc-env.txt --name debian-openidc -p 443:443 -it debian-openidc
 ```
 
-# env-file
+## env-file
 The container expects some environment variables to be defined:
 ```
 $ cat debian-openidc-env.txt
