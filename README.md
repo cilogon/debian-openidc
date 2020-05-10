@@ -8,7 +8,7 @@ docker build -t debian-openidc .
 
 ## run the container
 ```
-docker run --env-file ./debian-openidc-env.txt --name debian-openidc -p 443:443 -it debian-openidc
+docker run --env-file ./debian-openidc-env.txt --name debian-openidc -p 80:80 -p 443:443 -it debian-openidc
 ```
 
 ## env-file
@@ -21,6 +21,7 @@ REDIRECTURI=https://localhost.localdomain/oidc/redirect
 SCOPE=openid email profile org.cilogon.userinfo
 CRYPTOPASS=changeme
 SERVERNAME=localhost.localdomain
+EMAIL=demo@example.org
 ```
 
 ## push to Docker Hub
