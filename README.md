@@ -24,7 +24,7 @@ SERVERNAME=localhost.localdomain
 EMAIL=demo@example.org
 ```
 
-# https setup
+## https setup
 If SERVERNAME is set to anything other than `localhost.localdomain` then certbot will try to get a Let's Encrypt certificate for Apache HTTPD 60 seconds after startup, so try to have DNS configured properly within the first 60 seconds.
 
 ## push to Docker Hub
