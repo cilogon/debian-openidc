@@ -18,4 +18,9 @@ sed -i -e "s#SCOPE#$SCOPE#" /etc/apache2/conf-enabled/openidc.conf
 if [ -z ${CRYPTOPASS+x} ]; then echo "CRYPTOPASS is unset"; exit 1; fi
 sed -i -e "s#CRYPTOPASS#$CRYPTOPASS#" /etc/apache2/conf-enabled/openidc.conf
 
+if [ "$SERVERNAME" != "localhost.localdomain" ]; then
+    if [ -z ${EMAIL+x} ]; then echo "EMAIL is unset"; exit 1; fi
+    (sleep 60; certbot --apache --agree-tos -n -m $EMAIL -d $SERVERNAME) &
+fi
+
 exec apachectl -D FOREGROUND
